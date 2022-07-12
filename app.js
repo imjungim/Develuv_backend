@@ -13,5 +13,4 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
-  console.log("서버 접속 성공");
 })

@@ -11,7 +11,7 @@ router.get('/signup/to', (req, res) => {
   'SELECT * FROM user_table'
   con.query(sqlInsert, (err, result) => {
     res.send(result[1][0]);
-    console.log(result[1][0])
+    console.log(result[1][0]);
   });
 });
 
