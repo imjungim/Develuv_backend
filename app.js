@@ -5,6 +5,8 @@ const con = require("./DB/mysql");
 const loginRouter = require("./routes/loginRouter");
 const indexRouter = require("./routes/indexRouter");
 const exploreRouter = require("./routes/exploreRouter");
+const eventsRouter = require("./routes/eventsRouter");
+
 
 app.set("view engine", "html");
 app.use(express.json());
@@ -19,6 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/login", loginRouter);
 app.use("/Explore", exploreRouter);
+app.use("/events", eventsRouter);
 
 
 app.listen(PORT, () => {
