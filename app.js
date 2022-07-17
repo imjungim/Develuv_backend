@@ -11,6 +11,7 @@ const eventsRouter = require("./routes/eventsRouter");
 app.set("view engine", "html");
 app.use(express.json());
 
+// app.use(express.static("../Develuv_frontend/develuv-f/build"));
 app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
 
 app.get("/", (req, res) => {
