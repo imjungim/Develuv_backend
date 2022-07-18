@@ -6,6 +6,7 @@ const loginRouter = require("./routes/loginRouter");
 const indexRouter = require("./routes/indexRouter");
 const exploreRouter = require("./routes/exploreRouter");
 const eventsRouter = require("./routes/eventsRouter");
+const searchRouter = require("./routes/searchRouter");
 
 
 app.set("view engine", "html");
@@ -22,6 +23,8 @@ app.get("/", (req, res) => {
 app.use("/login", loginRouter);
 app.use("/Explore", exploreRouter);
 app.use("/events", eventsRouter);
+app.use("/search", searchRouter); //쿼리스트링값??
+
 
 
 app.listen(PORT, () => {
