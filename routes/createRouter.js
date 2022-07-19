@@ -3,10 +3,10 @@ const router = express.Router();
 const con = require('../DB/mysql');
 
 router.post("/", (req, res) => {
-    const {onoff ,type ,title ,end_date ,content ,ticket ,img ,address ,end_time} = req.body
     const par = Object.values(req.body)
-    const sql = `INSERT INTO event_table (onoff ,type ,title ,end_date ,content ,ticket ,img ,address ,end_time) VALUES (?,?)`
-    con.query(sql,'',(err,rows,fields)=>{
+    console.log(par)
+    const sql = `INSERT INTO event_table (user_id ,email ,title ,img,onoff ,type ,end_date ,content ,ticket ,address) VALUES (?,?,?,?,?,?,?,?,?,?)`
+    con.query(sql,par,(err,rows,fields)=>{
       if(err) throw err
       console.log('event_table 등록 완료')
     })

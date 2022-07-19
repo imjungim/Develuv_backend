@@ -8,9 +8,15 @@ const indexRouter = require("./routes/indexRouter");
 const exploreRouter = require("./routes/exploreRouter");
 const eventsRouter = require("./routes/eventsRouter");
 const createRouter = require("./routes/createRouter")
-
+const eventInfoRouter = require("./routes/eventInfoRouter")
 app.set("view engine", "html");
-app.use(express.json());
+app.use(express.json({
+  limit:'1000mb'   //body-parser 용량늘리기
+}));
+app.use(express.urlencoded({
+  limit: '1000mb', //body-parser 용량늘리기
+  extended: false
+}))
 
 app.use(express.static("../../project/Develuv_frontend/develuv-f/build"));
 // app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
@@ -26,6 +32,7 @@ app.use("/login", loginRouter);
 app.use("/Explore", exploreRouter);
 app.use("/events", eventsRouter);
 app.use("/EventCreate",createRouter)
+app.use("/EventInfo",eventInfoRouter)
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
