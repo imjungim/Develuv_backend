@@ -6,19 +6,26 @@ const loginRouter = require("./routes/loginRouter");
 const indexRouter = require("./routes/indexRouter");
 const exploreRouter = require("./routes/exploreRouter");
 const eventsRouter = require("./routes/eventsRouter");
-
+const passportConfig = require('./passport/config/index');
+const passport = require('passport');
+const session = require('express-session');
+const cors = require('cors');
 
 app.set("view engine", "html");
 app.use(express.json());
 
-// app.use(express.static("../Develuv_frontend/develuv-f/build"));
-app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
+app.use(cors());
 
+app.use(express.static("../Develuv_frontend/develuv-f/build"));
+// app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
+
+passportConfig();
+app.use(passport.initialize());
+app.use(session({ secret:"test"}));
+app.use(passport.session())
 app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
-
-// app.use('/', indexRouter);
 
 app.use("/login", loginRouter);
 app.use("/Explore", exploreRouter);
