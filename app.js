@@ -12,7 +12,6 @@ const eventInfoRouter = require("./routes/eventInfoRouter")
 const passportConfig = require('./passport/config/index');
 const passport = require('passport');
 const session = require('express-session');
-const cors = require('cors');
 
 app.set("view engine", "html");
 app.use(express.json({
@@ -26,7 +25,7 @@ app.use(express.urlencoded({
 app.use(express.static("../Develuv_frontend/develuv-f/build"));
 // app.use(express.static("../../project/Develuv_frontend/develuv-f/build"));
 // app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
-app.use(cors());
+// app.use(cors());
 
 passportConfig();
 app.use(passport.initialize());
