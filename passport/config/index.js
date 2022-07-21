@@ -3,8 +3,6 @@ const con = require("../../DB/mysql");
 const local = require('../localStrategy');
 
 module.exports = () => {
-  console.log(1+1);
-  
   passport.serializeUser((user, done) => {
     console.log("serialize User", user);
     done(null, user.ID);
