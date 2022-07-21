@@ -27,10 +27,10 @@ app.use(express.static("../Develuv_frontend/develuv-f/build"));
 // app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
 // app.use(cors());
 
-passportConfig();
+app.use(session({ secret:"test",resave:false,saveUninitialized:true}));
 app.use(passport.initialize());
-app.use(session({ secret:"test"}));
 app.use(passport.session())
+passportConfig();
 app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
