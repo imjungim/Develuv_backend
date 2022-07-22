@@ -30,14 +30,16 @@ router.post("/signup/post", async (req, res) => {
 });
 
 // passport local 전략
-router.post("/post", (req, res) => {
-  if(res) {
-    console.log('test')
+router.post(
+  "/post",
+  (req, res, next) => {
     passport.authenticate("local", {
-      successRedirect: "/adtad",
-      failureRedirect: "/lgasdfa"
-    })
+      session: false,
+    })(req, res, next);
+  },
+  (req, res) => {
+    console.log("pass");
   }
-});
+);
 
 module.exports = router;

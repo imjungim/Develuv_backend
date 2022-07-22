@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 8081;
+const PORT = 80;
 const con = require("./DB/mysql");
 const cors = require("cors")
 const loginRouter = require("./routes/loginRouter");
@@ -28,10 +28,10 @@ app.use(express.urlencoded({
 app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
 // app.use(cors());
 
-passportConfig();
+app.use(session({ secret:"test",resave:false,saveUninitialized:true}));
 app.use(passport.initialize());
-app.use(session({ secret:"test"}));
 app.use(passport.session())
+passportConfig();
 app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
