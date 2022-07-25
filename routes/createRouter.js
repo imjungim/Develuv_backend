@@ -26,14 +26,13 @@ router.post('/upload', upload.array("image",2),(req,res,next)=>{
 
 router.post("/",(req, res) => {
     const par = Object.values(req.body)
+    console.log(par)
     const sql = `INSERT INTO event_table (user_id ,title ,onoff ,type ,start_date,end_date ,content ,ticket ,address,image_id) VALUES (?,?,?,?,?,?,?,?,?,?)`
     con.query(sql,par,(err,rows,fields)=>{
       if(err) throw err
       console.log('event_table 등록 완료')
       res.send('ok')
-      
     })
-    
   });
 
 
