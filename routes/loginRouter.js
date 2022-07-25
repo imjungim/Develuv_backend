@@ -38,7 +38,7 @@ router.post(
     })(req, res, next);
   },
   (req, res) => {
-    console.log("pass");
+    res.end();
   }
 );
 

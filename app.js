@@ -8,7 +8,8 @@ const indexRouter = require("./routes/indexRouter");
 const exploreRouter = require("./routes/exploreRouter");
 const eventsRouter = require("./routes/eventsRouter");
 const createRouter = require("./routes/createRouter")
-const eventInfoRouter = require("./routes/eventInfoRouter")
+const eventInfoRouter = require("./routes/eventInfoRouter");
+const myRouter = require("./routes/myRouter");
 const passportConfig = require('./passport/config/index');
 const passport = require('passport');
 const session = require('express-session');
@@ -40,8 +41,9 @@ app.use('/event1', express.static(__dirname + '/image'));
 app.use("/login", loginRouter);
 app.use("/Explore", exploreRouter);
 app.use("/events", eventsRouter);
-app.use("/EventCreate",createRouter)
-app.use("/event",eventInfoRouter)
+app.use("/EventCreate",createRouter);
+app.use("/event",eventInfoRouter);
+app.use("/my", myRouter);
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
