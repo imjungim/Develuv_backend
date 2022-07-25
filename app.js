@@ -23,7 +23,9 @@ app.use(express.urlencoded({
   extended: false
 }))
 
-//app.use(express.static("../Develuv_frontend/develuv-f/build"));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
+app.use(express.static("../Develuv_frontend/develuv-f/build"));
 // app.use(express.static("../../project/Develuv_frontend/develuv-f/build"));
 app.use(express.static("../../project_front/Develuv_frontend/develuv-f/build"));
 // app.use(cors());
@@ -35,13 +37,13 @@ passportConfig();
 app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
-
+app.use('/event1', express.static(__dirname + '/image'));
 app.use("/login", loginRouter);
 app.use("/Explore", exploreRouter);
 app.use("/events", eventsRouter);
 app.use("/search", searchRouter); //쿼리스트링값??
 app.use("/EventCreate",createRouter)
-app.use("/EventInfo",eventInfoRouter)
+app.use("/event",eventInfoRouter)
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
