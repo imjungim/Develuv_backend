@@ -3,6 +3,7 @@ const router = express.Router();
 const con = require('../DB/mysql');
 
 router.get("/:id", (req, res) => {
+    console.log('요청 들어옴')
     const eventID = req.params.id
     const sql = `SELECT * FROM event_table WHERE board_key = "${eventID}"` 
     con.query(sql,(err, rows, fields) => {
