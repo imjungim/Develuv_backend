@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   console.log(sqlQuery)
   con.query(sqlQuery, (err, result) => {
     res.send(result);
-    //console.log(result);
+    console.log(result);
   });
 
 });

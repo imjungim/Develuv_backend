@@ -38,7 +38,14 @@ router.post(
     })(req, res, next);
   },
   (req, res) => {
-    console.log("pass");
+    // console.log("pass");
+    // console.log(req.session);
+    console.log("됨?", req.user);
+    if (req.user) {
+      // res.send(req.user)
+      const user = { email: req.user.email, nickname: req.user.nickname };
+      res.send(user);
+    }
   }
 );
 

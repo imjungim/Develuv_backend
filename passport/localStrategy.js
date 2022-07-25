@@ -7,8 +7,8 @@ module.exports = () => {
   passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'pw',
-    // session: true,
-    // passReqToCallback: true
+    //session: true,
+    //passReqToCallback: true
   }, (email, pw, done) => {
 
     const sql = 'SELECT * FROM KOSTADB.user_table WHERE email=?';
