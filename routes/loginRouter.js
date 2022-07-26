@@ -38,6 +38,7 @@ router.post(
     })(req, res, next);
   },
   (req, res) => {
+<<<<<<< HEAD
     // console.log("pass");
     // console.log(req.session);
     console.log("됨?", req.user);
@@ -46,6 +47,9 @@ router.post(
       const user = { email: req.user.email, nickname: req.user.nickname };
       res.send(user);
     }
+=======
+    res.end();
+>>>>>>> d1b22a3835c498364cc42a64821b8b3bd920277b
   }
 );
 
