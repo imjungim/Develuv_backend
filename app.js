@@ -7,16 +7,11 @@ const loginRouter = require("./routes/loginRouter");
 const indexRouter = require("./routes/indexRouter");
 const exploreRouter = require("./routes/exploreRouter");
 const eventsRouter = require("./routes/eventsRouter");
-<<<<<<< HEAD
-const searchRouter = require("./routes/searchRouter");
-const createRouter = require("./routes/createRouter");
-const eventInfoRouter = require("./routes/eventInfoRouter");
-=======
 const createRouter = require("./routes/createRouter")
 const eventInfoRouter = require("./routes/eventInfoRouter");
 const myRouter = require("./routes/myRouter");
->>>>>>> d1b22a3835c498364cc42a64821b8b3bd920277b
 const passportConfig = require('./passport/config/index');
+const searchRouter = require("./routes/searchRouter");
 const passport = require('passport');
 const session = require('express-session');
 
@@ -47,15 +42,10 @@ app.use('/event1', express.static(__dirname + '/image'));
 app.use("/login", loginRouter);
 app.use("/Explore", exploreRouter);
 app.use("/events", eventsRouter);
-<<<<<<< HEAD
-app.use("/search", searchRouter); //쿼리스트링값??
-app.use("/EventCreate",createRouter)
-app.use("/event",eventInfoRouter)
-=======
 app.use("/EventCreate",createRouter);
 app.use("/event",eventInfoRouter);
 app.use("/my", myRouter);
->>>>>>> d1b22a3835c498364cc42a64821b8b3bd920277b
+app.use("/search", searchRouter);
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
