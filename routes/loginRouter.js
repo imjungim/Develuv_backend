@@ -20,7 +20,9 @@ router.post("/signup/post", async (req, res) => {
         res.json({ result: "fail" });
       } else {
         con.query("insert into user_table set?", sqlInsert, (err, rows) => {
-          if (err) throw err;
+          if (err) {
+            throw err;
+          }
           console.log("ok");
           res.json({ result: "ok" });
         });
